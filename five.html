@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function addDigits(num) {
+    //   loop until the number is a single digit
+    while (num >= 10) {
+        let sum = 0;
+        let temp = num;
+
+        // Add all the digits of the number
+        while (temp > 0) {
+            sum += temp % 10;              // Get the last digit
+            temp = Math.floor(temp / 10);  // Remove the last digit
+        }
+
+        // Replace the number with the sum of its digits
+        num = sum;
+    }
+
+    return num;
+}
+
+console.log(addDigits(38));
+
+    </script>
+</body>
+</html>
