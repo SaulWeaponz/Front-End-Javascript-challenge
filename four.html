@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const words = ["hello", "world", "madam", "racecar"];
+
+      function firstPalindrome(words) {
+        //function to check if a word is a palindrome
+        function isPalindrome(word) {
+          return word === word.split("").reverse().join("");
+        }
+
+        //Loop through the words and return first palindrome
+        for (let word of words) {
+          if (isPalindrome(word)) {
+            return word;
+          }
+        }
+
+        //If no palindrome, return an empty string
+        return "";
+      }
+      
+      const result = firstPalindrome(words);
+      console.log(result);
+    </script>
+  </body>
+</html>
