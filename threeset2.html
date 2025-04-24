@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function majorityElement(nums) {
+    let count = 0;
+    let candidate = null;
+
+    for (let num of nums) {
+        if (count === 0) {
+            candidate = num;  // Set a new candidate
+        }
+
+        // Increase or decrease count
+        count += (num === candidate) ? 1 : -1;
+    }
+
+    return candidate;
+}
+
+console.log(majorityElement([3, 2, 3]));             // Output: 3
+console.log(majorityElement([2, 2, 1, 1, 1, 2, 2]));  // Output: 2
+
+    </script>
+</body>
+</html>

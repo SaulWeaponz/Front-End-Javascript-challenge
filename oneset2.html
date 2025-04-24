@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function processArray(arr) {
+    let evens = [];
+    let odds = [];
+    let chars = [];
+
+    // Separate values into evens, odds, and chars
+    for (let item of arr) {
+        if (typeof item === 'number' && Number.isInteger(item)) {
+            if (item % 2 === 0) {
+                evens.push(item);
+            } else {
+                odds.push(item);
+            }
+        } else if (typeof item === 'string' && item.length === 1) {
+            chars.push(item);
+        }
+    }
+
+    // Manual sort function (using selection sort)
+    function manualSort(array) {
+        for (let i = 0; i < array.length; i++) {
+            let minIndex = i;
+            for (let j = i + 1; j < array.length; j++) {
+                if (array[j] < array[minIndex]) {
+                    minIndex = j;
+                }
+            }
+            // Swap
+            [array[i], array[minIndex]] = [array[minIndex], array[i]];
+        }
+        return array;
+    }
+
+    // Sort the arrays manually
+    evens = manualSort(evens);
+    odds = manualSort(odds);
+    chars = manualSort(chars);
+
+    // Return final object
+    return {
+        evens,
+        odds,
+        chars
+    };
+}
+
+const input = [7, 'a', 2, 9.5, 'c', 4, 5, 'b', 3.3];
+console.log(processArray(input));
+
+    </script>
+</body>
+</html>
